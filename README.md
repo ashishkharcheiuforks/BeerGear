@@ -11,7 +11,4 @@ Used Libraries:
 	- Glide for image caching and loading
 	- AndroidX components
 	- Updated Material design guidlines. Used collapsing Toolbar, Carview and Recyclerview. 
-	
-	
-
 
