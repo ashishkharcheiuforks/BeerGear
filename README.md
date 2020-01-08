@@ -1,6 +1,6 @@
 # BeerGear
 
-[![GitHub license](https://img.shields.io/crates/l/rustc-serialize.svg)](https://github.com/prshntpnwr/XYZ-Reader/blob/master/LICENSE.txt)
+[![GitHub license](https://img.shields.io/crates/l/rustc-serialize.svg)](https://github.com/prshntpnwr/BeerGear/blob/master/LICENSE.txt)
 
 BeerGear is simple shopping cart based Android Application.
 
