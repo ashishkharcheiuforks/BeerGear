@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="beer"
+                type="com.example.beerGear.database.BeerCraft"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.70"/>
+
+        <TextView
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:id="@+id/name_text"
+                android:layout_width="0dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/primary_text"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="@{beer.name}"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_margin_mid"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name"/>
+
+        <TextView
+                style="@style/Base.TextAppearance.AppCompat.Body1"
+                android:id="@+id/style_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/secondary_text"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@{beer.style}"
+                android:layout_marginStart="@dimen/activity_margin_small"
+                android:layout_marginLeft="@dimen/activity_margin_small"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_margin_mid"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintStart_toStartOf="@id/name_text"
+                app:layout_constraintTop_toBottomOf="@id/name_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/add_remove_btn"
+                tools:text="English Barleywine"/>
+
+        <ImageView
+                android:id="@+id/add_remove_btn"
+                android:layout_width="@dimen/avd_icon_size"
+                android:layout_height="@dimen/avd_icon_size"
+                android:layout_marginEnd="@dimen/activity_margin_small"
+                android:layout_marginRight="@dimen/activity_margin_small"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:padding="@dimen/padding_small"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:selectableItemBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:drawableFlag="@{beer.inCart}"
+                app:positiveDrawable="@{@drawable/avd_add_circle}"
+                app:negativeDrawable="@{@drawable/avd_remove_circle}"
+                tools:src="@drawable/avd_add_circle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

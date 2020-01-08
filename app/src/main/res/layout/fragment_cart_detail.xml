@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.example.beerGear.observer.ListViewModel"/>
+
+        <variable
+                name="networkStatus"
+                type="com.example.beerGear.util.Status"/>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/draw_insets_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="MergeRootFrame">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/material_layout_app_bar_height"
+                app:elevation="0dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:elevation="0dp"
+                    app:contentInsetStart="@dimen/activity_horizontal_margin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backdrop"
+                android:layout_marginTop="@dimen/material_layout_app_bar_space_negative"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                    android:id="@+id/title_text"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginStart="@dimen/activity_vertical_margin"
+                    android:layout_marginLeft="@dimen/activity_vertical_margin"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/primary_text"
+                    android:text="@string/beers"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="@string/beers"/>
+
+            <View
+                    android:id="@+id/title_indicator_view"
+                    android:layout_width="@dimen/indicator_title_text_width"
+                    android:layout_height="@dimen/indicator_title_text_height"
+                    android:background="@color/colorAccent"
+                    app:layout_constraintStart_toStartOf="@id/title_text"
+                    app:layout_constraintTop_toBottomOf="@id/title_text"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/recycler_view_cart"
+                    android:padding="@dimen/padding_small"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/title_indicator_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/proceed_layout"
+                    tools:listitem="@layout/list_item_cart"/>
+
+            <include
+                    layout="@layout/layout_placeholder"
+                    app:status="@{networkStatus}"/>
+
+            <FrameLayout
+                    android:id="@+id/proceed_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorAccent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:selectableItemBackground"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="@string/proceed"
+                        tools:text="Proceed"/>
+
+                <ImageView
+                        android:layout_width="@dimen/avd_icon_size"
+                        android:layout_height="@dimen/avd_icon_size"
+                        android:src="@drawable/avd_payment"
+                        android:layout_marginEnd="@dimen/activity_margin_mid"
+                        android:layout_marginRight="@dimen/activity_margin_mid"
+                        android:layout_gravity="center_vertical|end"/>
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

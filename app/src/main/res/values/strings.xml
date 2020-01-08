@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Beer Gear</string>
+    <string name="your_location">Your Location</string>
+    <string name="location">Location</string>
+    <string name="refresh">Refresh</string>
+    <string name="cuisines">Cuisines</string>
+    <string name="pictures">Pictures</string>
+    <string name="select">Select</string>
+    <string name="cancel">Cancel</string>
+    <string name="beers">Beers</string>
+    <string name="cart">Cart</string>
+    <string name="proceed">Proceed</string>
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+    <string name="style">Style</string>
+    <string name="sort_in">Sort In</string>
+</resources>
